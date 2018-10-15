@@ -12,8 +12,8 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
-@EnableOAuth2Sso
 @EnableWebSecurity
+@EnableOAuth2Sso
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
@@ -26,12 +26,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf()
                 .disable()
-                .antMatcher("/**")
                 .authorizeRequests()
-                .antMatchers("/", "/auth")
-                .permitAll()
-                .anyRequest()
-                .authenticated();
+                    .antMatchers( "/auth").permitAll()
+                    .anyRequest().authenticated()
+                .and()
+                .logout()
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/back"))
+                    .logoutSuccessUrl("/auth")
+                    .deleteCookies("JSESSIONID")
+                    .invalidateHttpSession(true)
+                    .permitAll();
 //    protected void configure(HttpSecurity http) throws Exception {
 //        http
 //                .authorizeRequests()

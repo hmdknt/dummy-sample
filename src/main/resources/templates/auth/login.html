@@ -26,16 +26,13 @@
 <body>
 
 <div class="container">
-    <form class="form-signin social-uttons" action="/auth" th:action="@{/auth}" method="post">
+    <form class="form-signin social-uttons">
         <h2 class="form-signin-heading">試験ドライバー</h2>
-        <!--<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>-->
-        <a class="btn btn-block btn-social btn-google" th:href="@{/auth}">
+        <a class="btn btn-block btn-social btn-google" th:href="@{/auth/result}" methods="get">
             <span class="fa fa-google"></span> Sign in with Google
         </a>
     </form>
 </div> <!-- /container -->
-
-
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

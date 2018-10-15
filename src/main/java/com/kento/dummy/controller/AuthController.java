@@ -3,7 +3,11 @@ package com.kento.dummy.controller;
 import com.kento.dummy.domain.model.GoogleTask;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,13 +16,12 @@ import java.util.List;
 @RequestMapping
 public class AuthController {
 
-
-    @GetMapping("/driver")
-    public String driver() {
-        return "/auth/authentication";
+    @GetMapping("/auth")
+    public String login() {
+        return "auth/login";
     }
 
-    @RequestMapping("/auth")
+    @GetMapping("/auth/result")
     public String auth(Model model) {
 
         List<GoogleTask> googleTasks = new ArrayList<>();
@@ -39,12 +42,16 @@ public class AuthController {
 
         model.addAttribute("googleTasks", googleTasks);
 
-        return "/auth/authentication_result";
+        return "/auth/result";
     }
 
-    @GetMapping("/google")
+    @PostMapping("/google")
     public String google(Model model) {
         return "/google/result";
     }
 
+    @RequestMapping("/back")
+    public String top(Model model) {
+        return "forward:auth";
+    }
 }

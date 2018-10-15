@@ -20,12 +20,11 @@
 <body>
 
 <div class="container">
-
-    <form action="#" th:action="@{/auth}" method="post">
-        <div class="form-row align-items-center">
+    <form action="#" th:action="@{/google}" th:object="${botId}" method="post">
+        <div class="form-row align-items-center mt-md-5">
             <div class="col-sm-3 offset-sm-4">
                 <label class="sr-only" for="inlineFormInputName"></label>
-                <input type="text" class="form-control" id="inlineFormInputName" placeholder=""/>
+                <input type="text" class="form-control" id="inlineFormInputName" placeholder="Id"/>
             </div>
             <div class="col-auto my-1">
                 <button type="submit" class="btn btn-primary">送信</button>
@@ -39,40 +38,33 @@
         <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">ユーザ名</th>
+            <th scope="col">メールアドレス</th>
+            <th scope="col">アクセストークン</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="tasks : ${googleTasks}">
-            <th scope="row"></th>
-            <td th:text="${tasks.id}"></td>
-            <td th:text="${tasks.title}"></td>
-            <td th:text="${tasks.etag}"></td>
+        <tr>
+            <td>1</td>
+            <td>一郎</td>
+            <td>ichiro@gmail.com</td>
+            <td>afasdfafsdfasdfasdfsadfsgsgU</td>
         </tr>
 
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
+        <!--<tr th:each="elements, status : ${tasks}">-->
+            <!--<th th:text="${statsus.count}"></th>-->
+            <!--<td th:text="${tasks.id}"></td>-->
+            <!--<td th:text="${tasks.title}"></td>-->
+            <!--<td th:text="${tasks.etag}"></td>-->
+        <!--</tr>-->
+
         </tbody>
     </table>
 </div> <!-- /container -->
+
+<form action="#" th:action="@{/back}" method="get">
+    <button type="submit" class="btn btn-success col-sm-2 offset-sm-5 mt-md-5">Topへ戻る</button>
+</form>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
