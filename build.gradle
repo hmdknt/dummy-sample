@@ -33,6 +33,7 @@ dependencies {
 	compile ('org.springframework.security:spring-security-oauth2-jose:5.0.7.RELEASE')
 	implementation('org.springframework.boot:spring-boot-starter-thymeleaf')
 	implementation('org.springframework.boot:spring-boot-starter-web')
+	runtimeOnly('org.springframework.boot:spring-boot-devtools')
 	compileOnly 'org.projectlombok:lombok:1.18.2'
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
 	testImplementation('org.springframework.security:spring-security-test')

@@ -20,18 +20,20 @@
 <body>
 
 <div class="container">
-    <form action="#" th:action="@{/google}" th:object="${botId}" method="post">
-        <div class="form-row align-items-center mt-md-5">
-            <div class="col-sm-3 offset-sm-4">
-                <label class="sr-only" for="inlineFormInputName"></label>
-                <input type="text" class="form-control" id="inlineFormInputName" placeholder="Id"/>
-            </div>
-            <div class="col-auto my-1">
-                <button type="submit" class="btn btn-primary">送信</button>
-            </div>
+    <form action="#" th:action="@{/google}" th:object="${botId}" method="post" class="form-inline aligin-items-center mt-md-5 offset-sm-4" >
+        <div class="form-group mt-md-3" >
+            <label class="sr-only">ID</label>
+            <p class="form-control-static">ボットID</p>
         </div>
+        <div class="form-group mx-sm-3">
+            <input type="text" class="form-control" placeholder="ボットID"/>
+        </div>
+        <button type="submit" class="btn btn-primary">送信</button>
     </form>
-    <br/><br/>
+</div>
+<br/><br/>
+
+<div class="container">
 
     <h2 align="center">ユーザ情報</h2>
     <table class="table">
@@ -44,19 +46,13 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>1</td>
-            <td>一郎</td>
-            <td>ichiro@gmail.com</td>
-            <td>afasdfafsdfasdfasdfsadfsgsgU</td>
-        </tr>
 
-        <!--<tr th:each="elements, status : ${tasks}">-->
-            <!--<th th:text="${statsus.count}"></th>-->
-            <!--<td th:text="${tasks.id}"></td>-->
-            <!--<td th:text="${tasks.title}"></td>-->
-            <!--<td th:text="${tasks.etag}"></td>-->
-        <!--</tr>-->
+        <tr th:each="authInfo, status : ${authInfo}">
+            <td th:text="${status.count}"></td>
+            <td th:text="${authInfo.name}"></td>
+            <td th:text="${authInfo.emailAddress}"></td>
+            <td ></td>
+        </tr>
 
         </tbody>
     </table>

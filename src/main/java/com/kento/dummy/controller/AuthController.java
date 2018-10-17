@@ -1,5 +1,6 @@
 package com.kento.dummy.controller;
 
+import com.kento.dummy.domain.model.AuthInfo;
 import com.kento.dummy.domain.model.GoogleTask;
 import org.springframework.security.authentication.jaas.LoginExceptionResolver;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
@@ -25,25 +26,14 @@ public class AuthController {
     }
 
     @GetMapping("/auth/result")
-    public String auth(OAuth2AuthenticationToken authentication,Model model) {
+    public String auth(OAuth2AuthenticationToken oAuth2AuthenticationToken, Model model) {
 
-        List<GoogleTask> googleTasks = new ArrayList<>();
+        AuthInfo authInfo = new AuthInfo();
 
-        GoogleTask tasks = new GoogleTask();
+        authInfo.setName((String) oAuth2AuthenticationToken.getPrincipal().getAttributes().get("name"));
+        authInfo.setEmailAddress((String) oAuth2AuthenticationToken.getPrincipal().getAttributes().get("email"));
 
-        tasks.setEtag("hello");
-        tasks.setId("123");
-        tasks.setTitle("aaaa");
-
-        googleTasks.add(tasks);
-
-        tasks.setEtag("hello1");
-        tasks.setId("1234");
-        tasks.setTitle("aaaa");
-
-        googleTasks.add(tasks);
-
-        model.addAttribute("googleTasks", googleTasks);
+        model.addAttribute("authInfo", authInfo);
 
         return "/auth/result";
     }
