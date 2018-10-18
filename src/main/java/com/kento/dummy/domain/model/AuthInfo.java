@@ -1,4 +1,4 @@
-package dag.czc.czcmf.ui.app.bean.context;
+package com.kento.dummy.domain.model;
 
 import lombok.Data;
 

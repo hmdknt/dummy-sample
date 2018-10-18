@@ -1,5 +1,6 @@
 package com.kento.dummy.domain.service;
 
+import com.kento.dummy.domain.model.AuthInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
@@ -14,7 +15,7 @@ public class AuthenticationInformationList {
     private OAuth2AuthorizedClientService oAuth2AuthorizedClientService;
 
     // 認証情報取得
-    public dag.czc.czcmf.ui.app.bean.context.AuthInfo getAuthInfo(OAuth2AuthenticationToken oAuth2AuthenticationToken, dag.czc.czcmf.ui.app.bean.context.AuthInfo authInfo) {
+    public AuthInfo getAuthInfo(OAuth2AuthenticationToken oAuth2AuthenticationToken, AuthInfo authInfo) {
 
         OAuth2AuthorizedClient oAuth2AuthorizedClient =
                 oAuth2AuthorizedClientService.loadAuthorizedClient(

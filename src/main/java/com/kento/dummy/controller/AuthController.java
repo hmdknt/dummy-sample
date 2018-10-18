@@ -1,7 +1,7 @@
 package com.kento.dummy.controller;
 
+import com.kento.dummy.domain.model.AuthInfo;
 import com.kento.dummy.domain.service.AuthenticationInformationList;
-import dag.czc.czcmf.ui.app.bean.context.AuthInfo;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
