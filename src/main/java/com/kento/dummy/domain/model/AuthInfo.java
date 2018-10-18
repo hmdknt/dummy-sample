@@ -1,4 +1,4 @@
-package com.kento.dummy.domain.model;
+package dag.czc.czcmf.ui.app.bean.context;
 
 import lombok.Data;
 
@@ -13,4 +13,7 @@ public class AuthInfo {
 
     // アクセストークン
     private String accessToken;
+
+    // リフレッシュトークン
+    private String refreshToken;
 }
