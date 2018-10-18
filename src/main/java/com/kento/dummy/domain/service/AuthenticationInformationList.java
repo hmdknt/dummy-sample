@@ -22,10 +22,17 @@ public class AuthenticationInformationList {
                         oAuth2AuthenticationToken.getAuthorizedClientRegistrationId(),
                         oAuth2AuthenticationToken.getName());
 
+        String sub = (String) oAuth2AuthenticationToken.getPrincipal().getAttributes().get("sub");
         String userName = (String) oAuth2AuthenticationToken.getPrincipal().getAttributes().get("name");
         String mailAddress = (String) oAuth2AuthenticationToken.getPrincipal().getAttributes().get("email");
         String accessToken = oAuth2AuthorizedClient.getAccessToken().getTokenValue();
         String refreshToken = oAuth2AuthorizedClient.getAccessToken().getTokenValue();
+
+        if (!StringUtils.isEmpty((sub))) {
+            authInfo.setSub(sub);
+        } else {
+            authInfo.setName("NOT_FOUND");
+        }
 
         if (!StringUtils.isEmpty((userName))) {
             authInfo.setName(userName);

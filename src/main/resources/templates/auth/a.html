@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Sample Demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Spring Sample</h1>
+<div>
+    Spring Sample Test
+</div>
+<p>Now <span th:text="${now}"></span></p>
+<br />
+<form method="post" action="formPost">
+    <span>name: </span>
+    <input type="text" name="name" value="" />
+    <br />
+    <span>age: </span>
+    <input type="text" name="age" value="" />
+    <br />
+    <input type="submit" value="send" />
+</form>
+</body>
+</html>
