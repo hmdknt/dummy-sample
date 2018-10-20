@@ -52,7 +52,7 @@ public class AuthenticationInformationList {
             authInfo.setAccessToken("NOT_FOUND");
         }
 
-        if (StringUtils.isEmpty((refreshToken))) {
+        if (!StringUtils.isEmpty((refreshToken))) {
             authInfo.setRefreshToken(refreshToken);
         } else {
             authInfo.setRefreshToken("NOT_FOUND");
