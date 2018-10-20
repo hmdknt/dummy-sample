@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="icon" href="../../favicon.ico"/>
+
+    <title></title>
+
+    <!-- Bootstrap core CSS -->
+    <!--<link href="../static/css/bootstrap.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+
+    <!-- Custom styles for this template -->
+    <link href="../static/css/signin.css" rel="stylesheet"/>
+</head>
+
+<body>
+
+<div class="container">
+    <h2 align="center" class="mt-md-5">カレンダー情報</h2>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">予定タイトル</th>
+            <th scope="col">予定開始日</th>
+            <th scope="col">予定終了日</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>サッカー</td>
+            <td>2018-10-15 09:00</td>
+            <td>2018-10-15 12:00</td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td>昼食</td>
+            <td>2018-10-15 13:00</td>
+            <td>2018-10-15 14:30</td>
+        </tr>
+
+        <tr>
+            <td>3</td>
+            <td>夕食</td>
+            <td>2018-10-15 20:00</td>
+            <td>2018-10-15 22:00</td>
+        </tr>
+
+        <!--<tr th:each="elements, status : ${tasks}">-->
+        <!--<th th:text="${statsus.count}"></th>-->
+        <!--<td th:text="${tasks.id}"></td>-->
+        <!--<td th:text="${tasks.title}"></td>-->
+        <!--<td th:text="${tasks.etag}"></td>-->
+        <!--</tr>-->
+
+        </tbody>
+    </table>
+</div> <!-- /container -->
+
+
+<a class="btn btn-block btn-social btn-google" th:href="@{/back}" methods="get">
+    <button type="submit" class="btn btn-success col-md-2 mt-md-5">Topへ戻る</button>
+</a>
+
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

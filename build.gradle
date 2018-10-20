@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '1.5.16.RELEASE'
+		springBootVersion = '2.0.5.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -13,6 +13,8 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
 
 group = 'com.kento'
 version = '0.0.1-SNAPSHOT'
@@ -24,11 +26,16 @@ repositories {
 
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-security')
-	compile('org.springframework.security.oauth:spring-security-oauth2')
-	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-	compile('org.springframework.boot:spring-boot-starter-web')
+	implementation('org.springframework.boot:spring-boot-starter-security')
+	runtimeOnly('org.springframework.boot:spring-boot-devtools')
+	compile ('org.springframework.security.oauth:spring-security-oauth2:2.3.4.RELEASE')
+	compile ('org.springframework.security:spring-security-oauth2-client:5.1.0.RELEASE')
+	compile ('org.springframework.security:spring-security-oauth2-jose:5.1.0.RELEASE')
+	compile ('org.springframework.security:spring-security-oauth2-core:5.1.0.RELEASE')
+	implementation('org.springframework.boot:spring-boot-starter-thymeleaf')
+	implementation('org.springframework.boot:spring-boot-starter-web')
+	runtimeOnly('org.springframework.boot:spring-boot-devtools')
 	compileOnly 'org.projectlombok:lombok:1.18.2'
-	testCompile('org.springframework.boot:spring-boot-starter-test')
-	testCompile('org.springframework.security:spring-security-test')
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+	testImplementation('org.springframework.security:spring-security-test')
 }
