@@ -57,7 +57,7 @@ public class AuthController {
     }
 
     @PostMapping("/google")
-    public String google(@RequestParam String botId,  Model model) {
+    public String google(@RequestParam("botId") String botId,  Model model) {
 
         System.out.println(botId);
 
