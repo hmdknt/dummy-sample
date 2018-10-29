@@ -26,60 +26,46 @@
             <p class="form-control-static">ボットID</p>
         </div>
         <div class="form-group mx-sm-3">
-            <input type="text" class="form-control" name="botId", value="PT_TEST" placeholder="ボットID"/>
+            <input type="text" class="form-control" placeholder="ボットID"/>
         </div>
         <button type="submit" class="btn btn-primary">送信</button>
     </form>
 </div>
 <br/><br/>
 
-
-
 <div class="container">
-    <div class="row">
-        <div class="aligin-items-center offset-md-5">
-            <h2 align="center">ユーザ情報</h2>
-        </div>
-    </div>
 
-    <div class="row">
-        <table class="table">
-            <tbody>
-            <tr>
-                <th scope="col" width="200">ユーザ名</th>
-                <td class="md-10" th:text="${authInfo.name}"></td>
-            </tr>
-            <tr>
-                <th scope="col" width="200">メールアドレス</th>
-                <td th:text="${authInfo.emailAddress}"></td>
-            </tr>
-            <tr>
-                <th scope="col" width="200">アクセストークン</th>
-                <td th:text="${authInfo.accessToken}"></td>
-            </tr>
-            <tr>
-                <th scope="col" width="200">リフレッシュトークン</th>
-                <td th:text="${authInfo.refreshToken}"></td>
-            </tr>
-            </tbody>
-        </table>
+    <h2 align="center">ユーザ情報</h2>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">ユーザ名</th>
+            <th scope="col">メールアドレス</th>
+            <th scope="col">アクセストークン</th>
+        </tr>
+        </thead>
+        <tbody>
 
-    </div>
+        <tr th:each="authInfo, status : ${authInfo}">
+            <td th:text="${status.count}"></td>
+            <td th:text="${authInfo.name}"></td>
+            <td th:text="${authInfo.emailAddress}"></td>
+            <td th:text="${authInfo.accessToken}"></td>
+        </tr>
 
+        </tbody>
+    </table>
 </div> <!-- /container -->
 
-<a class="btn btn-block btn-social btn-google" th:href="@{/back}" methods="get">
-    <button type="submit" class="btn btn-success col-md-2 mt-md-5">Topへ戻る</button>
-</a>
-
+<form action="#" th:action="@{/back}" method="get">
+    <button type="submit" class="btn btn-success col-sm-2 offset-sm-5 mt-md-5">Topへ戻る</button>
+</form>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
