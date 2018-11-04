@@ -30,6 +30,7 @@
         </div>
         <button type="submit" class="btn btn-primary">送信</button>
     </form>
+
 </div>
 <br/><br/>
 
@@ -51,7 +52,7 @@
             <td th:text="${status.count}"></td>
             <td th:text="${authInfo.name}"></td>
             <td th:text="${authInfo.emailAddress}"></td>
-            <td th:text="${authInfo.accessToken}"></td>
+            <td th:text="${authInfo.accessToken}" th:object="${authInfo.accessToken}"></td>
         </tr>
 
         </tbody>
@@ -59,8 +60,11 @@
 </div> <!-- /container -->
 
 <form action="#" th:action="@{/back}" method="get">
+    <input type="hidden" name="accessToken" th:value="${authInfo.accessToken}"/>
     <button type="submit" class="btn btn-success col-sm-2 offset-sm-5 mt-md-5">Topへ戻る</button>
 </form>
+
+
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
